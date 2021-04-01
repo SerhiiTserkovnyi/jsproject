@@ -1,10 +1,27 @@
-let numm = 50;
-while (numm <= 55){
-    document.write(numm);
-    numm++
+"use strict";
+
+
+const option = {
+    name: 'test',
+    height: 1024,
+    width: 1024, 
+    color: {
+        border: 'black',
+        bg: 'red'
+    }
+};
+let counter = 0;
+for (let key in option){
+    if (typeof(option[key]) === 'object') {
+        for (let i in option[key]) {
+            console.log (`Властивість ${i} має імя ${option[key][i]}`);
+            counter++;
+        }
+
+    } else {
+        console.log (`Властивість ${key} має імя ${option[key]}`);
+        counter++;
+    }
+    
 }
-do {
-    document.write(numm);
-    numm++
-}
-while(numm <= 55);
+console.log (counter);
