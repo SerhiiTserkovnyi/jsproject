@@ -1,27 +1,26 @@
 "use strict";
 
 
-const option = {
-    name: 'test',
-    height: 1024,
-    width: 1024, 
-    color: {
-        border: 'black',
-        bg: 'red'
-    }
-};
-let counter = 0;
-for (let key in option){
-    if (typeof(option[key]) === 'object') {
-        for (let i in option[key]) {
-            console.log (`Властивість ${i} має імя ${option[key][i]}`);
-            counter++;
-        }
+const box = document.getElementById('box'),
+    btns = document.getElementsByTagName('button'),
+    circle = document.getElementsByClassName('circle'),
+    hearts = document.querySelectorAll('.heart'),
+    oneHeart = document.querySelector('.heart'),
+    wrapper = document.querySelector('.wrapper');
 
-    } else {
-        console.log (`Властивість ${key} має імя ${option[key]}`);
-        counter++;
-    }
-    
-}
-console.log (counter);
+box.style.backgroundColor = 'blue';
+box.style.width = '800px';
+btns[2].style.backgroundColor = 'red';
+
+hearts.forEach(item => {
+    item.style.background = 'blue';
+});
+
+const div = document.createElement('div');
+div.classList.add('black');
+wrapper.append(div);
+hearts[2].before(div);
+hearts[1].replaceWith(circle[2]);
+div.innerHTML = 'Hi dear freand';
+div.textContent = 'hi';
+div.insertAdjacentHTML('beforebegin', '<h1>jdfj</h1>')
